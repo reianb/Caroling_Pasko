@@ -1,6 +1,7 @@
 var cnv;
 let bgImg;
-let jingle;
+let jingle = [];
+let capture;
 
 function centerCanvas() {
   var x = (windowWidth - width) / 2;
@@ -11,7 +12,9 @@ function centerCanvas() {
 function preload(){
   bgImg = loadImage("assets/caroling.png");
   soundFormats('wav');
-  jingle = loadSound("assets/jingle.wav");
+  for (let i = 0; i < 2; i++){
+  jingle[i] = loadSound("assets/jingle.wav");
+  }
 }
 function setup() {
   cnv = createCanvas(1100, 800);
@@ -19,6 +22,14 @@ function setup() {
 }
 
 function draw() {
-  background(125);
+  background(75, 139, 59);
   image(bgImg,0,0);
+}
+
+function mouseMoved() {
+  if(jingle[0].isPlaying()==false){
+    jingle[0].play();
+  } else if (jingle[1].isPlaying()==false){
+    jingle[1].play();
+  }
 }
