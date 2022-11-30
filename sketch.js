@@ -41,5 +41,4 @@ function mouseMoved() {
 
 function mousePressed() {
   drum.play();
-  console.log("mouse is pressed");
 }
